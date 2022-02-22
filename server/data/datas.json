@@ -1,12 +1,13 @@
 [
     {
-        "name": "kuswanrdi",
-        "email" :"kus@mail.com",
+        "name": "Kuswandi",
+        "email" :"wandinak17@gmail.com",
         "age" :23
     },
     {
-        "name": "Skuswanrdi",
-        "email" :"Skus@mail.com",
-        "age" :23
-    }
+        "name": "shellrean",
+        "email": "info@shekkrean.id",
+        "age":23
+
+    } 
 ]

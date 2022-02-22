@@ -4,6 +4,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net"
@@ -16,11 +17,14 @@ import (
 type dataStudentServer struct { //1
 	pb.UnimplementedDataStudentServer
 	mu       sync.Mutex
-	students []*pb.Student
+	students []*pb.Student //dao
 }
 
+//membuat receiver 4
 func (d *dataStudentServer) FindStundentByemail(ctx context.Context, student *pb.Student) (*pb.Student, error) {
 	//ctx dan error harus ada ketika req data request student
+
+	fmt.Println(d.students, "student  ===")
 
 	for _, v := range d.students {
 		if v.Email == student.Email {
@@ -30,12 +34,12 @@ func (d *dataStudentServer) FindStundentByemail(ctx context.Context, student *pb
 	return nil, nil
 }
 
-//membuat receiver 4
 func (d *dataStudentServer) loadData() {
 	data, err := ioutil.ReadFile("data/datas.json")
 	if err != nil {
 		log.Fatalln("error in read fie", err.Error())
 	}
+	//
 	if err := json.Unmarshal(data, &d.students); err != nil {
 		log.Fatalln("error in un marshall data json", err.Error())
 	}

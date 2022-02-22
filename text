@@ -1,8 +1,0 @@
-go mod init  sule.id/learn/grpc-simple
-
- go get google.golang.org/grpc //indtall grpc
-
- protoc --go_out=paths=source_relative:. --go-grpc_out=paths=source_relative:. student/student.proto
-
- cd  server 
- go run main.go

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "sule.id/learn/grpc-simple/student"; //bikin package student
+
+package student;
+
+service DataStudent {
+    rpc FindStundentByemail(Student) returns (Student);  // harus mengirim parameter 1   pake message
+}
+
+
+message Student {  //2
+   string name = 1;
+   int32 age = 2;
+   string email = 3;
+}
